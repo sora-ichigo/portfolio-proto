@@ -1,4 +1,4 @@
-name: gem release
+name: Release gem
 on:
   release:
     types:
