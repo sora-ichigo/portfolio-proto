@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "protosum2/version"
+require_relative "portfolio/version"
 
 Dir.glob("#{__dir__}/**/*_pb.rb").each {|file| require file}
 
-module Protosum2
+module Portfolio
   class Error < StandardError; end
   # Your code goes here...
 end

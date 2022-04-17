@@ -1,4 +1,4 @@
-module github.com/igsr5/protosum/go
+module github.com/igsr5/portfolio/go
 
 go 1.17
 

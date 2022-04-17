@@ -5,7 +5,7 @@ package feature.feature_api_pb;
 import "google/api/annotations.proto";
 
 option go_package = "feature/feature_api/;featureApiPb";
-option ruby_package = "Protosum::Feature::FeatureApiPb";
+option ruby_package = "Portfolio::Feature::FeatureApiPb";
 
 service FeatureService {
   rpc GetFeature(Point) returns (Feature) {};
