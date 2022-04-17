@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name = "portfolio"
   spec.version = Portfolio::VERSION
   spec.authors = ["igsr5"]
-  spec.email = ["i@gsr5.dev"]
+  spec.email = ["sora1220.119014@outlook.jp"]
 
   spec.summary = "Write a short summary, because RubyGems requires one."
   spec.description = "Write a longer description or delete this line."
