@@ -1,5 +1,5 @@
 {
-  "name": "protosum",
+  "name": "portfolio",
   "version": "0.9.19",
   "description": "",
   "main": "index.js",
@@ -8,18 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/igsr5/protosum.git"
+    "url": "git+https://github.com/igsr5/portfolio.git"
   },
   "keywords": [
-    "protosum",
+    "portfolio",
     "protobuf"
   ],
   "author": "igsr5 <i@gsr5.com> (https://igsr5.dev/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/igsr5/protosum/issues"
+    "url": "https://github.com/igsr5/portfolio/issues"
   },
-  "homepage": "https://github.com/igsr5/protosum#readme",
+  "homepage": "https://github.com/igsr5/portfolio#readme",
   "dependencies": {
     "@grpc/grpc-js": "^1.6.0",
     "google-protobuf": "^3.20.0-rc.2"

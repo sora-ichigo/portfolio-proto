@@ -28,7 +28,7 @@ jobs:
           echo ":rubygems_api_key: ${RUBYGEMS_API_KEY}" >> $HOME/.gem/credentials
       - name: update version.rb
         run: |
-          cat lib/protosum2/version.rb | (rm lib/protosum2/version.rb;sed -e 's/VERSION = ".*"/VERSION = "${{github.event.release.tag_name}}"/'>lib/protosum2/version.rb)
+          cat lib/portfolio/version.rb | (rm lib/portfolio/version.rb;sed -e 's/VERSION = ".*"/VERSION = "${{github.event.release.tag_name}}"/'>lib/portfolio/version.rb)
         working-directory: ./ruby
       - name: gem build
         run: gem build *.gemspec

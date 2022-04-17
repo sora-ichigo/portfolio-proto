@@ -1,7 +1,7 @@
 {
-  "name": "protosum",
+  "name": "portfolio",
   "version": "v0.7.9",
-  "description": "Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/protosum`. To experiment with that code, run `bin/console` for an interactive prompt.",
+  "description": "Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/portfolio`. To experiment with that code, run `bin/console` for an interactive prompt.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/igsr5/protosum.git"
+    "url": "https://github.com/igsr5/portfolio.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/igsr5/protosum/issues"
+    "url": "https://github.com/igsr5/portfolio/issues"
   },
-  "homepage": "https://github.com/igsr5/protosum#readme",
+  "homepage": "https://github.com/igsr5/portfolio#readme",
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
