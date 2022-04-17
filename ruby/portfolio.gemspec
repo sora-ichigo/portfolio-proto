@@ -3,7 +3,7 @@
 require_relative "lib/portfolio/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "igsr5-portfolio"
+  spec.name = "igsr5-portfolio-proto"
   spec.version = Portfolio::VERSION
   spec.authors = ["igsr5"]
   spec.email = ["sora1220.119014@outlook.jp"]
