@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package blogs;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "/blogs;blogs_pb";
+option ruby_package = "BlogsPb";
+
+message Blog {
+    // Required.
+    string id = 1;
+    // Required. ブログのタイトル
+    string title = 2;
+    // Required. ブログの投稿日時
+    google.protobuf.Timestamp posted_at = 3;
+    // Required. ブログのサイトURL
+    string site_url = 4;
+    // Required. ブログのサムネイル画像URL
+    string thumbnail_url = 5;
+}
