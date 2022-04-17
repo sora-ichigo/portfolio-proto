@@ -1,4 +1,4 @@
-module portfolio
+module portfolio-proto
 
 go 1.18
 
