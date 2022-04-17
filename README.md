@@ -1,37 +1,57 @@
-# Portfolio
+# igsr5's Portfolio Protocol Buffers 🐃
 
-GitHub Action x Proto Buffer で奇跡のスキーマ体験を開発する試みです
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/portfolio`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![auto release demo](https://github.com/igsr5/portfolio-proto/actions/workflows/create-release.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/create-release.yml)
+[![gem release](https://github.com/igsr5/portfolio-proto/actions/workflows/gem-release.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/gem-release.yml)
+[![npm release](https://github.com/igsr5/portfolio-proto/actions/workflows/npm-release.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/npm-release.yml)
+[![Generate code from proto](https://github.com/igsr5/portfolio-proto/actions/workflows/gen-from-proto.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/gen-from-proto.yml)
+[![Lint Code Base](https://github.com/igsr5/portfolio-proto/actions/workflows/linter.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/linter.yml)
 
-TODO: Delete this and the text above, and describe your gem
+
+@igsr5 のポートフォリオサイトに関するProtobufスキーマ。protoの定義と各言語実装のライブラリ配信を行う。
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'portfolio'
+### Ruby
+https://rubygems.org/gems/igsr5-portfolio-proto
+```sh
+$ gem install igsr5-portfolio-proto
 ```
 
-And then execute:
+### Nodejs
+https://www.npmjs.com/package/igsr5-portfolio-proto
+```sh
+$ npm i igsr5-portfolio-proto
+```
 
-    $ bundle
+### Golang
+```sh
+$ go get github.com/igsr5/portfolio-proto/go
+```
 
-Or install it yourself as:
+## Design
 
-    $ gem install portfolio
+```
+.
+├── proto # proto定義を配置する。新しいスキーマを追加したいときはこのディレクトリを更新してPRを出す
+├── ruby # proto定義のRuby実装。自動生成コードで構成される
+├── golang # proto定義のGolang実装。自動生成コードで構成される
+└── nodejs # proto定義のNodejs実装。自動生成コードで構成される
+```
 
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+新しいスキーマを定義したくなった際は `/proto` ディレクトリ配下にproto定義を実装する。
+参考) https://github.com/igsr5/portfolio-proto/pull/6
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+1. `/proto`配下にスキーマを定義
+2. PR を出す
+3. proto定義に問題がなければ各言語実装が生成され、自動でPRを作成する(PRにURLがコメントされる)
+4. レビューOKならPRをマージする
+5. 各言語実装がmasterにマージされると自動GitHub Releaseが生成され gem, npmなどにもnew versionがリリースされる
+6. リリース 🎉
 
 ## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/portfolio.
+https://github.com/igsr5/protosum
+> GitHub Action x Protocol Buffers is an attempt to develop a miracle schema experience!
