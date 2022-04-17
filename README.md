@@ -4,8 +4,8 @@
 [![auto release demo](https://github.com/igsr5/portfolio-proto/actions/workflows/create-release.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/create-release.yml)
 [![gem release](https://github.com/igsr5/portfolio-proto/actions/workflows/gem-release.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/gem-release.yml)
 [![npm release](https://github.com/igsr5/portfolio-proto/actions/workflows/npm-release.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/npm-release.yml)
-[![Generate code from proto](https://github.com/igsr5/portfolio-proto/actions/workflows/gen-from-proto.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/gen-from-proto.yml)
 [![Lint Code Base](https://github.com/igsr5/portfolio-proto/actions/workflows/linter.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/linter.yml)
+![](https://camo.githubusercontent.com/029166d85f92969845201e59c3fcd8c8345556036155ff18140f6a9e796173a3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d677265656e)
 
 
 @igsr5 のポートフォリオサイトに関するProtobufスキーマ。protoの定義と各言語実装のライブラリ配信を行う。
