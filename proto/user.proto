@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package userpb;
+
+option go_package = "user/;userpb";
+option ruby_package = "Protosum::UserPb";
+
+message User {
+  string name  = 1;
+  string email  = 2;
+  int64  age   = 3;
+  int64  type   = 4;
+}
