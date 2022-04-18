@@ -1,10 +1,10 @@
 # igsr5's Portfolio Protocol Buffers 🐃
 
 
-[![auto release demo](https://github.com/igsr5/portfolio-proto/actions/workflows/create-release.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/create-release.yml)
-[![gem release](https://github.com/igsr5/portfolio-proto/actions/workflows/gem-release.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/gem-release.yml)
-[![npm release](https://github.com/igsr5/portfolio-proto/actions/workflows/npm-release.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/npm-release.yml)
-[![Lint Code Base](https://github.com/igsr5/portfolio-proto/actions/workflows/linter.yml/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/linter.yml)
+[![auto release demo](https://github.com/igsr5/portfolio-proto/workflows/Auto%20release/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/create-release.yml)
+[![gem release](https://github.com/igsr5/portfolio-proto/workflows/Release%20gem/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/gem-release.yml)
+[![npm release](https://github.com/igsr5/portfolio-proto/workflows/Release%20npm/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/npm-release.yml)
+[![Lint Code Base](https://github.com/igsr5/portfolio-proto/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/igsr5/portfolio-proto/actions/workflows/linter.yml)
 ![](https://camo.githubusercontent.com/029166d85f92969845201e59c3fcd8c8345556036155ff18140f6a9e796173a3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d677265656e)
 
 
