@@ -8,54 +8,54 @@ option go_package = "/blogs;blogs_pb";
 option ruby_package = "BlogsPb";
 
 message Blog {
-    // Required.
-    string id = 1;
-    // Required. ブログのタイトル
-    string title = 2;
-    // Required. ブログの投稿日時
-    google.protobuf.Timestamp posted_at = 3;
-    // Required. ブログのサイトURL
-    string site_url = 4;
-    // Required. ブログのサムネイル画像URL
-    string thumbnail_url = 5;
-    // Required. ブログサービスの名前 e.g.  Zenn, Note, Qiita, ...
-    string service_name = 6;
+  // Required.
+  string id = 1;
+  // Required. ブログのタイトル
+  string title = 2;
+  // Required. ブログの投稿日時
+  google.protobuf.Timestamp posted_at = 3;
+  // Required. ブログのサイトURL
+  string site_url = 4;
+  // Required. ブログのサムネイル画像URL
+  string thumbnail_url = 5;
+  // Required. ブログサービスの名前 e.g.  Zenn, Note, Qiita, ...
+  string service_name = 6;
 }
 
 message BlogFromRSSItem {
-    // Required.
-    string id = 1;
-    // Required. ブログのタイトル
-    string title = 2;
-    // Required. ブログの投稿日時
-    google.protobuf.Timestamp posted_at = 3;
-    // Required. ブログのサイトURL
-    string site_url = 4;
-    // Required. ブログのサムネイル画像URL
-    string thumbnail_url = 5;
-    // Required. ブログサービスの名前 e.g.  Zenn, Note, Qiita, ...
-    string service_name = 6;
+  // Required.
+  string id = 1;
+  // Required. ブログのタイトル
+  string title = 2;
+  // Required. ブログの投稿日時
+  google.protobuf.Timestamp posted_at = 3;
+  // Required. ブログのサイトURL
+  string site_url = 4;
+  // Required. ブログのサムネイル画像URL
+  string thumbnail_url = 5;
+  // Required. ブログサービスの名前 e.g.  Zenn, Note, Qiita, ...
+  string service_name = 6;
 }
 
 message BlogFromManualItem {
-    // Required.
-    string id = 1;
-    // Required. ブログのタイトル
-    string title = 2;
-    // Required. ブログの投稿日時
-    google.protobuf.Timestamp posted_at = 3;
-    // Required. ブログのサイトURL
-    string site_url = 4;
-    // Required. ブログのサムネイル画像URL
-    string thumbnail_url = 5;
-    // Required. ブログサービスの名前 e.g.  Zenn, Note, Qiita, ...
-    string service_name = 6;
+  // Required.
+  string id = 1;
+  // Required. ブログのタイトル
+  string title = 2;
+  // Required. ブログの投稿日時
+  google.protobuf.Timestamp posted_at = 3;
+  // Required. ブログのサイトURL
+  string site_url = 4;
+  // Required. ブログのサムネイル画像URL
+  string thumbnail_url = 5;
+  // Required. ブログサービスの名前 e.g.  Zenn, Note, Qiita, ...
+  string service_name = 6;
 }
 
 message RSSFeed {
-    // Required.
-    string id = 1;
-    // Required. RSS Feed URL
-    string url = 2;
+  // Required.
+  string id = 1;
+  // Required. RSS Feed URL
+  string url = 2;
 
 }
