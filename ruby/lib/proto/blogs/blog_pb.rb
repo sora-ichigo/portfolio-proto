@@ -13,10 +13,34 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :posted_at, :message, 3, "google.protobuf.Timestamp"
       optional :site_url, :string, 4
       optional :thumbnail_url, :string, 5
+      optional :service_name, :string, 6
+    end
+    add_message "blogs.BlogFromRSSItem" do
+      optional :id, :string, 1
+      optional :title, :string, 2
+      optional :posted_at, :message, 3, "google.protobuf.Timestamp"
+      optional :site_url, :string, 4
+      optional :thumbnail_url, :string, 5
+      optional :service_name, :string, 6
+    end
+    add_message "blogs.BlogFromManualItem" do
+      optional :id, :string, 1
+      optional :title, :string, 2
+      optional :posted_at, :message, 3, "google.protobuf.Timestamp"
+      optional :site_url, :string, 4
+      optional :thumbnail_url, :string, 5
+      optional :service_name, :string, 6
+    end
+    add_message "blogs.RSSFeed" do
+      optional :id, :string, 1
+      optional :url, :string, 2
     end
   end
 end
 
 module BlogsPb
   Blog = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("blogs.Blog").msgclass
+  BlogFromRSSItem = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("blogs.BlogFromRSSItem").msgclass
+  BlogFromManualItem = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("blogs.BlogFromManualItem").msgclass
+  RSSFeed = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("blogs.RSSFeed").msgclass
 end
