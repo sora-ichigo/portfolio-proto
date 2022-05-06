@@ -4,6 +4,7 @@ lint:
     remove:
       - ENUM_FIELD_NAMES_PREFIX
       - MAX_LINE_LENGTH
+  rules_option:
     indent:
       # Available styles are 4(4-spaces), 2(2-spaces) or tab.
       style:
