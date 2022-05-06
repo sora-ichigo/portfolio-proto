@@ -120,26 +120,3 @@ export namespace BlogFromManualItem {
         serviceName: string,
     }
 }
-
-export class RSSFeed extends jspb.Message { 
-    getId(): string;
-    setId(value: string): RSSFeed;
-    getUrl(): string;
-    setUrl(value: string): RSSFeed;
-
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): RSSFeed.AsObject;
-    static toObject(includeInstance: boolean, msg: RSSFeed): RSSFeed.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: RSSFeed, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): RSSFeed;
-    static deserializeBinaryFromReader(message: RSSFeed, reader: jspb.BinaryReader): RSSFeed;
-}
-
-export namespace RSSFeed {
-    export type AsObject = {
-        id: string,
-        url: string,
-    }
-}

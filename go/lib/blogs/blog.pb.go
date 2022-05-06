@@ -300,63 +300,6 @@ func (x *BlogFromManualItem) GetServiceName() string {
 	return ""
 }
 
-type RSSFeed struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	// Required.
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Required. RSS Feed URL
-	Url string `protobuf:"bytes,2,opt,name=url,proto3" json:"url,omitempty"`
-}
-
-func (x *RSSFeed) Reset() {
-	*x = RSSFeed{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_blogs_blog_proto_msgTypes[3]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *RSSFeed) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RSSFeed) ProtoMessage() {}
-
-func (x *RSSFeed) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blogs_blog_proto_msgTypes[3]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RSSFeed.ProtoReflect.Descriptor instead.
-func (*RSSFeed) Descriptor() ([]byte, []int) {
-	return file_proto_blogs_blog_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *RSSFeed) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *RSSFeed) GetUrl() string {
-	if x != nil {
-		return x.Url
-	}
-	return ""
-}
-
 var File_proto_blogs_blog_proto protoreflect.FileDescriptor
 
 var file_proto_blogs_blog_proto_rawDesc = []byte{
@@ -403,12 +346,9 @@ var file_proto_blogs_blog_proto_rawDesc = []byte{
 	0x75, 0x72, 0x6c, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x74, 0x68, 0x75, 0x6d, 0x62,
 	0x6e, 0x61, 0x69, 0x6c, 0x55, 0x72, 0x6c, 0x12, 0x21, 0x0a, 0x0c, 0x73, 0x65, 0x72, 0x76, 0x69,
 	0x63, 0x65, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x73,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x22, 0x2b, 0x0a, 0x07, 0x52, 0x53,
-	0x53, 0x46, 0x65, 0x65, 0x64, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x10, 0x0a, 0x03, 0x75, 0x72, 0x6c, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x03, 0x75, 0x72, 0x6c, 0x42, 0x1b, 0x5a, 0x0f, 0x2f, 0x62, 0x6c, 0x6f, 0x67,
-	0x73, 0x3b, 0x62, 0x6c, 0x6f, 0x67, 0x73, 0x5f, 0x70, 0x62, 0xea, 0x02, 0x07, 0x42, 0x6c, 0x6f,
-	0x67, 0x73, 0x50, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x42, 0x1b, 0x5a, 0x0f, 0x2f, 0x62,
+	0x6c, 0x6f, 0x67, 0x73, 0x3b, 0x62, 0x6c, 0x6f, 0x67, 0x73, 0x5f, 0x70, 0x62, 0xea, 0x02, 0x07,
+	0x42, 0x6c, 0x6f, 0x67, 0x73, 0x50, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -423,18 +363,17 @@ func file_proto_blogs_blog_proto_rawDescGZIP() []byte {
 	return file_proto_blogs_blog_proto_rawDescData
 }
 
-var file_proto_blogs_blog_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_proto_blogs_blog_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_proto_blogs_blog_proto_goTypes = []interface{}{
 	(*Blog)(nil),                // 0: blogs.Blog
 	(*BlogFromRSSItem)(nil),     // 1: blogs.BlogFromRSSItem
 	(*BlogFromManualItem)(nil),  // 2: blogs.BlogFromManualItem
-	(*RSSFeed)(nil),             // 3: blogs.RSSFeed
-	(*timestamp.Timestamp)(nil), // 4: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_proto_blogs_blog_proto_depIdxs = []int32{
-	4, // 0: blogs.Blog.posted_at:type_name -> google.protobuf.Timestamp
-	4, // 1: blogs.BlogFromRSSItem.posted_at:type_name -> google.protobuf.Timestamp
-	4, // 2: blogs.BlogFromManualItem.posted_at:type_name -> google.protobuf.Timestamp
+	3, // 0: blogs.Blog.posted_at:type_name -> google.protobuf.Timestamp
+	3, // 1: blogs.BlogFromRSSItem.posted_at:type_name -> google.protobuf.Timestamp
+	3, // 2: blogs.BlogFromManualItem.posted_at:type_name -> google.protobuf.Timestamp
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -484,18 +423,6 @@ func file_proto_blogs_blog_proto_init() {
 				return nil
 			}
 		}
-		file_proto_blogs_blog_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RSSFeed); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -503,7 +430,7 @@ func file_proto_blogs_blog_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_blogs_blog_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
