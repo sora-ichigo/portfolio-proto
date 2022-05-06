@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package blogs;
+
+option go_package = "/blogs;rss_feeds_pb";
+option ruby_package = "RSSFeedsPb";
+
+message RSSFeed {
+  // Required.
+  string id = 1;
+  // Required. RSS Feed URL
+  string url = 2;
+}
+
+message CreateRSSFeedRequest {
+  // Required. RSS Feed URL
+  string url = 2;
+}

@@ -51,11 +51,3 @@ message BlogFromManualItem {
   // Required. ブログサービスの名前 e.g.  Zenn, Note, Qiita, ...
   string service_name = 6;
 }
-
-message RSSFeed {
-  // Required.
-  string id = 1;
-  // Required. RSS Feed URL
-  string url = 2;
-
-}
