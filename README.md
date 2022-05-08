@@ -10,6 +10,10 @@
 
 @igsr5 のポートフォリオサイトに関するProtobufスキーマ。protoの定義と各言語実装のライブラリ配信を行う。
 
+Backend Repo - https://github.com/igsr5/portfolio-backend  
+Schema Repo(Protocol Buffers) - https://github.com/igsr5/portfolio-proto
+
+
 ## Installation
 
 ### Ruby
