@@ -19,6 +19,7 @@ protogen: clean setup
 		--go_out=./go/lib \
 		--go-grpc_out=./go/lib \
 		--grpc-gateway_out=./go/lib \
+		--openapiv2_out=./openapi \
 		-I ${GRPC_GATEWAY_PATH}/ \
 		-I ${GOOGLEAPIS_PATH} \
 		-I . \
