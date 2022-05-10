@@ -5,17 +5,17 @@ require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("proto/blogs/rss_feed.proto", :syntax => :proto3) do
-    add_message "blogs.RSSFeed" do
+    add_message "portfolio.blogs.RSSFeed" do
       optional :id, :string, 1
       optional :url, :string, 2
     end
-    add_message "blogs.CreateRSSFeedRequest" do
+    add_message "portfolio.blogs.CreateRSSFeedRequest" do
       optional :url, :string, 2
     end
   end
 end
 
 module RSSFeedsPb
-  RSSFeed = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("blogs.RSSFeed").msgclass
-  CreateRSSFeedRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("blogs.CreateRSSFeedRequest").msgclass
+  RSSFeed = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.RSSFeed").msgclass
+  CreateRSSFeedRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.CreateRSSFeedRequest").msgclass
 end

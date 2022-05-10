@@ -1,5 +1,5 @@
-// package: blogs
-// file: blogs/blog.proto
+// package: portfolio.blogs
+// file: proto/blogs/blog.proto
 
 /* tslint:disable */
 /* eslint-disable */

@@ -7,7 +7,7 @@ require 'google/protobuf/timestamp_pb'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("proto/blogs/blog.proto", :syntax => :proto3) do
-    add_message "blogs.Blog" do
+    add_message "portfolio.blogs.Blog" do
       optional :id, :string, 1
       optional :title, :string, 2
       optional :posted_at, :message, 3, "google.protobuf.Timestamp"
@@ -15,7 +15,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :thumbnail_url, :string, 5
       optional :service_name, :string, 6
     end
-    add_message "blogs.BlogFromRSSItem" do
+    add_message "portfolio.blogs.BlogFromRSSItem" do
       optional :id, :string, 1
       optional :title, :string, 2
       optional :posted_at, :message, 3, "google.protobuf.Timestamp"
@@ -23,7 +23,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :thumbnail_url, :string, 5
       optional :service_name, :string, 6
     end
-    add_message "blogs.BlogFromManualItem" do
+    add_message "portfolio.blogs.BlogFromManualItem" do
       optional :id, :string, 1
       optional :title, :string, 2
       optional :posted_at, :message, 3, "google.protobuf.Timestamp"
@@ -35,7 +35,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
 end
 
 module BlogsPb
-  Blog = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("blogs.Blog").msgclass
-  BlogFromRSSItem = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("blogs.BlogFromRSSItem").msgclass
-  BlogFromManualItem = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("blogs.BlogFromManualItem").msgclass
+  Blog = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.Blog").msgclass
+  BlogFromRSSItem = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.BlogFromRSSItem").msgclass
+  BlogFromManualItem = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.BlogFromManualItem").msgclass
 end
