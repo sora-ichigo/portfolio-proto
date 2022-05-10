@@ -16,7 +16,7 @@ protogen: clean setup
 		${PROTO_FILE}
 	# generate swagger code.
 	protoc \
-		--openapiv2_out=json_names_for_fields=true,allow_merge=true:./swagger \
+		--openapiv2_out=json_names_for_fields=true,allow_merge=true:./docs \
 		-I ${GRPC_GATEWAY_PATH}/ \
 		-I ${GOOGLEAPIS_PATH} \
 		-I . \
@@ -55,4 +55,3 @@ clean:
 	rm -rf go/lib/*
 	rm -rf nodejs/lib/*
 	rm -rf ruby/lib/proto/*
-	rm -rf swagger/*
