@@ -19,7 +19,7 @@ protogen: clean setup
 		--openapiv2_out=json_names_for_fields=true,allow_merge=true:./swagger \
 		-I ${GRPC_GATEWAY_PATH}/ \
 		-I ${GOOGLEAPIS_PATH} \
-		-I ./proto \
+		-I . \
 		${PROTO_FILE}
 	# generate go code.
 	protoc \

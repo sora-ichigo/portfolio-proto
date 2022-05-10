@@ -5,7 +5,7 @@ package portfolio;
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 
-import "./blogs/rss_feed.proto";
+import "proto/blogs/rss_feed.proto";
 
 service PortfolioBackendApi {
   rpc CreateRSSFeed(portfolio.blogs.CreateRSSFeed) returns (google.protobuf.Empty) {
