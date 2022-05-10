@@ -9,8 +9,15 @@ protogen: clean setup
 	bundle exec grpc_tools_ruby_protoc \
 		--ruby_out=ruby/lib \
 		--grpc_out=ruby/lib \
-		--grpc-gateway_out=./go/lib \
+		--grpc-gateway_out=./ruby/lib \
 		-I ${GRPC_GATEWAY_PATH} \
+		-I ${GOOGLEAPIS_PATH} \
+		-I . \
+		${PROTO_FILE}
+	# generate swagger code.
+	protoc \
+		--openapiv2_out=json_names_for_fields=true,allow_merge=true:./swagger \
+		-I ${GRPC_GATEWAY_PATH}/ \
 		-I ${GOOGLEAPIS_PATH} \
 		-I . \
 		${PROTO_FILE}
@@ -28,11 +35,11 @@ protogen: clean setup
 		--plugin=./node_modules/grpc_tools_node_protoc_ts/bin/protoc-gen-ts \
 		--js_out=import_style=commonjs,binary:nodejs/lib \
 		--grpc_out=grpc_js:nodejs/lib \
-		--grpc-gateway_out=./go/lib \
+		--grpc-gateway_out=./nodejs/lib \
 		--ts_out=grpc_js:nodejs/lib \
 		-I ${GRPC_GATEWAY_PATH}/ \
 		-I ${GOOGLEAPIS_PATH} \
-		-I ./proto \
+		-I . \
 		${PROTO_FILE}
 
 
@@ -48,3 +55,4 @@ clean:
 	rm -rf go/lib/*
 	rm -rf nodejs/lib/*
 	rm -rf ruby/lib/proto/*
+	rm -rf swagger/*

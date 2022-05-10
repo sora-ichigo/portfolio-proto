@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package blogs;
+package portfolio.blogs;
 
 import "google/protobuf/timestamp.proto";
 

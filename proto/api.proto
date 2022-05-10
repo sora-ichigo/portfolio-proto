@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package portfolio;
+
+option go_package = "/api;api_pb";
+option ruby_package = "ApiPb";
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+
+import "proto/blogs/rss_feed.proto";
+
+service PortfolioBackendApi {
+  rpc CreateRSSFeed(portfolio.blogs.CreateRSSFeedRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/rss_feeds"
+    };
+  }
+}

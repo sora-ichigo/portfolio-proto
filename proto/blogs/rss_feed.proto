@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package blogs;
+package portfolio.blogs;
 
 option go_package = "/blogs/rss_feed;rss_feeds_pb";
 option ruby_package = "RSSFeedsPb";
