@@ -9,7 +9,7 @@ protogen: clean setup
 	bundle exec grpc_tools_ruby_protoc \
 		--ruby_out=ruby/lib \
 		--grpc_out=ruby/lib \
-		--grpc-gateway_out=./go/lib \
+		--grpc-gateway_out=./ruby/lib \
 		-I ${GRPC_GATEWAY_PATH} \
 		-I ${GOOGLEAPIS_PATH} \
 		-I . \
@@ -35,7 +35,7 @@ protogen: clean setup
 		--plugin=./node_modules/grpc_tools_node_protoc_ts/bin/protoc-gen-ts \
 		--js_out=import_style=commonjs,binary:nodejs/lib \
 		--grpc_out=grpc_js:nodejs/lib \
-		--grpc-gateway_out=./go/lib \
+		--grpc-gateway_out=./nodejs/lib \
 		--ts_out=grpc_js:nodejs/lib \
 		-I ${GRPC_GATEWAY_PATH}/ \
 		-I ${GOOGLEAPIS_PATH} \
