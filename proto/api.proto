@@ -16,7 +16,7 @@ service PortfolioBackendApi {
       post: "/rss_feeds"
     };
   }
-  rpc CreateRSSFeed() returns (repeated portfolio.blogs.RSSFeed) {
+  rpc GetRSSFeeds() returns (repeated portfolio.blogs.RSSFeed) {
     option (google.api.http) = {
       get: "/rss_feeds"
     };
