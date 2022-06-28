@@ -9,7 +9,7 @@ protogen: clean setup
 	bundle exec grpc_tools_ruby_protoc \
 		--ruby_out=ruby/lib \
 		--grpc_out=ruby/lib \
-		--grpc-gateway_out=./ruby/lib \
+		--grpc-gateway_out=ruby/lib/proto \
 		-I ${GRPC_GATEWAY_PATH} \
 		-I ${GOOGLEAPIS_PATH} \
 		-I . \
