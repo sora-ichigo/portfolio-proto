@@ -17,10 +17,9 @@ service PortfolioBackendApi {
     };
   }
 
-  rpc BatchGetRSSFeed(google.protobuf.Empty) returns (repeated portfolio.blogs.RSSFeed) {
+  rpc BatchGetRSSFeeds(google.protobuf.Empty) returns (portfolio.blogs.BatchGetRSSFeedResponse) {
     option (google.api.http) = {
       get: "/rss_feeds"
     };
   }
-
 }

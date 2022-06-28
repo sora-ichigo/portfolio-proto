@@ -16,3 +16,8 @@ message CreateRSSFeedRequest {
   // Required. RSS Feed URL
   string url = 2;
 }
+
+message BatchGetRSSFeedsResponse {
+  // Required.
+  required RSSFeed rss_feeds = 1;
+}
