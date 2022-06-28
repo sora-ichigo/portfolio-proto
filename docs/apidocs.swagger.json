@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "proto/api.proto",
+    "title": "proto/blogs/rss_feed.proto",
     "version": "version not set"
   },
   "tags": [
