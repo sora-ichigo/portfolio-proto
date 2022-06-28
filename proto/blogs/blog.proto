@@ -20,6 +20,7 @@ message Blog {
   string thumbnail_url = 5;
   // Required. ブログサービスの名前 e.g.  Zenn, Note, Qiita, ...
   string service_name = 6;
+  string test = 7;
 }
 
 message BlogFromRSSItem {
