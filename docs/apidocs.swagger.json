@@ -16,7 +16,116 @@
     "application/json"
   ],
   "paths": {
+    "/rss_feed/{id}": {
+      "get": {
+        "operationId": "PortfolioBackendApi_GetRSSFeed",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/blogsGetRSSFeedResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Required.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "PortfolioBackendApi"
+        ]
+      },
+      "delete": {
+        "operationId": "PortfolioBackendApi_DeleteRSSFeed",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Required.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "PortfolioBackendApi"
+        ]
+      },
+      "put": {
+        "operationId": "PortfolioBackendApi_UpdateRSSFeed",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Required.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "PortfolioBackendApi"
+        ]
+      }
+    },
     "/rss_feeds": {
+      "get": {
+        "operationId": "PortfolioBackendApi_BatchGetRSSFeeds",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/blogsBatchGetRSSFeedsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "PortfolioBackendApi"
+        ]
+      },
       "post": {
         "operationId": "PortfolioBackendApi_CreateRSSFeed",
         "responses": {
@@ -49,6 +158,40 @@
     }
   },
   "definitions": {
+    "blogsBatchGetRSSFeedsResponse": {
+      "type": "object",
+      "properties": {
+        "rssFeeds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/blogsRSSFeed"
+          },
+          "description": "Required."
+        }
+      }
+    },
+    "blogsGetRSSFeedResponse": {
+      "type": "object",
+      "properties": {
+        "rssFeeds": {
+          "$ref": "#/definitions/blogsRSSFeed",
+          "description": "Required."
+        }
+      }
+    },
+    "blogsRSSFeed": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Required."
+        },
+        "url": {
+          "type": "string",
+          "title": "Required. RSS Feed URL"
+        }
+      }
+    },
     "protobufAny": {
       "type": "object",
       "properties": {

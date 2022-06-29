@@ -25,6 +25,10 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PortfolioBackendApiClient interface {
 	CreateRSSFeed(ctx context.Context, in *rss_feed.CreateRSSFeedRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	BatchGetRSSFeeds(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*rss_feed.BatchGetRSSFeedsResponse, error)
+	GetRSSFeed(ctx context.Context, in *rss_feed.GetRSSFeedRequest, opts ...grpc.CallOption) (*rss_feed.GetRSSFeedResponse, error)
+	UpdateRSSFeed(ctx context.Context, in *rss_feed.UpdateRSSFeedRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	DeleteRSSFeed(ctx context.Context, in *rss_feed.DeleteRSSFeedRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 }
 
 type portfolioBackendApiClient struct {
@@ -44,11 +48,51 @@ func (c *portfolioBackendApiClient) CreateRSSFeed(ctx context.Context, in *rss_f
 	return out, nil
 }
 
+func (c *portfolioBackendApiClient) BatchGetRSSFeeds(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*rss_feed.BatchGetRSSFeedsResponse, error) {
+	out := new(rss_feed.BatchGetRSSFeedsResponse)
+	err := c.cc.Invoke(ctx, "/portfolio.PortfolioBackendApi/BatchGetRSSFeeds", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *portfolioBackendApiClient) GetRSSFeed(ctx context.Context, in *rss_feed.GetRSSFeedRequest, opts ...grpc.CallOption) (*rss_feed.GetRSSFeedResponse, error) {
+	out := new(rss_feed.GetRSSFeedResponse)
+	err := c.cc.Invoke(ctx, "/portfolio.PortfolioBackendApi/GetRSSFeed", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *portfolioBackendApiClient) UpdateRSSFeed(ctx context.Context, in *rss_feed.UpdateRSSFeedRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
+	err := c.cc.Invoke(ctx, "/portfolio.PortfolioBackendApi/UpdateRSSFeed", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *portfolioBackendApiClient) DeleteRSSFeed(ctx context.Context, in *rss_feed.DeleteRSSFeedRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
+	err := c.cc.Invoke(ctx, "/portfolio.PortfolioBackendApi/DeleteRSSFeed", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PortfolioBackendApiServer is the server API for PortfolioBackendApi service.
 // All implementations must embed UnimplementedPortfolioBackendApiServer
 // for forward compatibility
 type PortfolioBackendApiServer interface {
 	CreateRSSFeed(context.Context, *rss_feed.CreateRSSFeedRequest) (*empty.Empty, error)
+	BatchGetRSSFeeds(context.Context, *empty.Empty) (*rss_feed.BatchGetRSSFeedsResponse, error)
+	GetRSSFeed(context.Context, *rss_feed.GetRSSFeedRequest) (*rss_feed.GetRSSFeedResponse, error)
+	UpdateRSSFeed(context.Context, *rss_feed.UpdateRSSFeedRequest) (*empty.Empty, error)
+	DeleteRSSFeed(context.Context, *rss_feed.DeleteRSSFeedRequest) (*empty.Empty, error)
 	mustEmbedUnimplementedPortfolioBackendApiServer()
 }
 
@@ -58,6 +102,18 @@ type UnimplementedPortfolioBackendApiServer struct {
 
 func (UnimplementedPortfolioBackendApiServer) CreateRSSFeed(context.Context, *rss_feed.CreateRSSFeedRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateRSSFeed not implemented")
+}
+func (UnimplementedPortfolioBackendApiServer) BatchGetRSSFeeds(context.Context, *empty.Empty) (*rss_feed.BatchGetRSSFeedsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BatchGetRSSFeeds not implemented")
+}
+func (UnimplementedPortfolioBackendApiServer) GetRSSFeed(context.Context, *rss_feed.GetRSSFeedRequest) (*rss_feed.GetRSSFeedResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRSSFeed not implemented")
+}
+func (UnimplementedPortfolioBackendApiServer) UpdateRSSFeed(context.Context, *rss_feed.UpdateRSSFeedRequest) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRSSFeed not implemented")
+}
+func (UnimplementedPortfolioBackendApiServer) DeleteRSSFeed(context.Context, *rss_feed.DeleteRSSFeedRequest) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteRSSFeed not implemented")
 }
 func (UnimplementedPortfolioBackendApiServer) mustEmbedUnimplementedPortfolioBackendApiServer() {}
 
@@ -90,6 +146,78 @@ func _PortfolioBackendApi_CreateRSSFeed_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PortfolioBackendApi_BatchGetRSSFeeds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(empty.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PortfolioBackendApiServer).BatchGetRSSFeeds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/portfolio.PortfolioBackendApi/BatchGetRSSFeeds",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PortfolioBackendApiServer).BatchGetRSSFeeds(ctx, req.(*empty.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PortfolioBackendApi_GetRSSFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(rss_feed.GetRSSFeedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PortfolioBackendApiServer).GetRSSFeed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/portfolio.PortfolioBackendApi/GetRSSFeed",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PortfolioBackendApiServer).GetRSSFeed(ctx, req.(*rss_feed.GetRSSFeedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PortfolioBackendApi_UpdateRSSFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(rss_feed.UpdateRSSFeedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PortfolioBackendApiServer).UpdateRSSFeed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/portfolio.PortfolioBackendApi/UpdateRSSFeed",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PortfolioBackendApiServer).UpdateRSSFeed(ctx, req.(*rss_feed.UpdateRSSFeedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PortfolioBackendApi_DeleteRSSFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(rss_feed.DeleteRSSFeedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PortfolioBackendApiServer).DeleteRSSFeed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/portfolio.PortfolioBackendApi/DeleteRSSFeed",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PortfolioBackendApiServer).DeleteRSSFeed(ctx, req.(*rss_feed.DeleteRSSFeedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // PortfolioBackendApi_ServiceDesc is the grpc.ServiceDesc for PortfolioBackendApi service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -100,6 +228,22 @@ var PortfolioBackendApi_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateRSSFeed",
 			Handler:    _PortfolioBackendApi_CreateRSSFeed_Handler,
+		},
+		{
+			MethodName: "BatchGetRSSFeeds",
+			Handler:    _PortfolioBackendApi_BatchGetRSSFeeds_Handler,
+		},
+		{
+			MethodName: "GetRSSFeed",
+			Handler:    _PortfolioBackendApi_GetRSSFeed_Handler,
+		},
+		{
+			MethodName: "UpdateRSSFeed",
+			Handler:    _PortfolioBackendApi_UpdateRSSFeed_Handler,
+		},
+		{
+			MethodName: "DeleteRSSFeed",
+			Handler:    _PortfolioBackendApi_DeleteRSSFeed_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
