@@ -19,5 +19,5 @@ message CreateRSSFeedRequest {
 
 message BatchGetRSSFeedsResponse {
   // Required.
-  required RSSFeed rss_feeds = 1;
+  repeated RSSFeed rss_feeds = 1;
 }
