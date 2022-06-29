@@ -23,7 +23,7 @@ service PortfolioBackendApi {
     };
   }
 
-  rpc GetRSSFeed(google.protobuf.Empty) returns (portfolio.blogs.GetRSSFeedResponse) {
+  rpc GetRSSFeed(portfolio.blogs.GetRSSFeedRequest) returns (portfolio.blogs.GetRSSFeedResponse) {
     option (google.api.http) = {
       get: "/rss_feed/{id}"
     };

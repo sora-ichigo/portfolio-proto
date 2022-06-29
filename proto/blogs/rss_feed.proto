@@ -22,6 +22,11 @@ message BatchGetRSSFeedsResponse {
   repeated RSSFeed rss_feeds = 1;
 }
 
+message GetRSSFeedRequest {
+  // Required.
+  string id = 1;
+}
+
 message GetRSSFeedResponse {
   // Required.
   RSSFeed rss_feeds = 1;
