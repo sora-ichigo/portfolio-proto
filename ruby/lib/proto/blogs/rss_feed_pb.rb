@@ -12,10 +12,30 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "portfolio.blogs.CreateRSSFeedRequest" do
       optional :url, :string, 2
     end
+    add_message "portfolio.blogs.BatchGetRSSFeedsResponse" do
+      repeated :rss_feeds, :message, 1, "portfolio.blogs.RSSFeed"
+    end
+    add_message "portfolio.blogs.GetRSSFeedRequest" do
+      optional :id, :string, 1
+    end
+    add_message "portfolio.blogs.GetRSSFeedResponse" do
+      optional :rss_feeds, :message, 1, "portfolio.blogs.RSSFeed"
+    end
+    add_message "portfolio.blogs.UpdateRSSFeedRequest" do
+      optional :id, :string, 1
+    end
+    add_message "portfolio.blogs.DeleteRSSFeedRequest" do
+      optional :id, :string, 1
+    end
   end
 end
 
 module RSSFeedsPb
   RSSFeed = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.RSSFeed").msgclass
   CreateRSSFeedRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.CreateRSSFeedRequest").msgclass
+  BatchGetRSSFeedsResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.BatchGetRSSFeedsResponse").msgclass
+  GetRSSFeedRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.GetRSSFeedRequest").msgclass
+  GetRSSFeedResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.GetRSSFeedResponse").msgclass
+  UpdateRSSFeedRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.UpdateRSSFeedRequest").msgclass
+  DeleteRSSFeedRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.DeleteRSSFeedRequest").msgclass
 end

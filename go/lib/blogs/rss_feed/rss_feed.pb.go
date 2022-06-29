@@ -125,6 +125,246 @@ func (x *CreateRSSFeedRequest) GetUrl() string {
 	return ""
 }
 
+type BatchGetRSSFeedsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Required.
+	RssFeeds []*RSSFeed `protobuf:"bytes,1,rep,name=rss_feeds,json=rssFeeds,proto3" json:"rss_feeds,omitempty"`
+}
+
+func (x *BatchGetRSSFeedsResponse) Reset() {
+	*x = BatchGetRSSFeedsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_blogs_rss_feed_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *BatchGetRSSFeedsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchGetRSSFeedsResponse) ProtoMessage() {}
+
+func (x *BatchGetRSSFeedsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blogs_rss_feed_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchGetRSSFeedsResponse.ProtoReflect.Descriptor instead.
+func (*BatchGetRSSFeedsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blogs_rss_feed_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *BatchGetRSSFeedsResponse) GetRssFeeds() []*RSSFeed {
+	if x != nil {
+		return x.RssFeeds
+	}
+	return nil
+}
+
+type GetRSSFeedRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Required.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *GetRSSFeedRequest) Reset() {
+	*x = GetRSSFeedRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_blogs_rss_feed_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetRSSFeedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRSSFeedRequest) ProtoMessage() {}
+
+func (x *GetRSSFeedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blogs_rss_feed_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRSSFeedRequest.ProtoReflect.Descriptor instead.
+func (*GetRSSFeedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blogs_rss_feed_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetRSSFeedRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type GetRSSFeedResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Required.
+	RssFeeds *RSSFeed `protobuf:"bytes,1,opt,name=rss_feeds,json=rssFeeds,proto3" json:"rss_feeds,omitempty"`
+}
+
+func (x *GetRSSFeedResponse) Reset() {
+	*x = GetRSSFeedResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_blogs_rss_feed_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetRSSFeedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRSSFeedResponse) ProtoMessage() {}
+
+func (x *GetRSSFeedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blogs_rss_feed_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRSSFeedResponse.ProtoReflect.Descriptor instead.
+func (*GetRSSFeedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blogs_rss_feed_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetRSSFeedResponse) GetRssFeeds() *RSSFeed {
+	if x != nil {
+		return x.RssFeeds
+	}
+	return nil
+}
+
+type UpdateRSSFeedRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Required.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *UpdateRSSFeedRequest) Reset() {
+	*x = UpdateRSSFeedRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_blogs_rss_feed_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateRSSFeedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateRSSFeedRequest) ProtoMessage() {}
+
+func (x *UpdateRSSFeedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blogs_rss_feed_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateRSSFeedRequest.ProtoReflect.Descriptor instead.
+func (*UpdateRSSFeedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blogs_rss_feed_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *UpdateRSSFeedRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type DeleteRSSFeedRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Required.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *DeleteRSSFeedRequest) Reset() {
+	*x = DeleteRSSFeedRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_blogs_rss_feed_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteRSSFeedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteRSSFeedRequest) ProtoMessage() {}
+
+func (x *DeleteRSSFeedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blogs_rss_feed_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteRSSFeedRequest.ProtoReflect.Descriptor instead.
+func (*DeleteRSSFeedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blogs_rss_feed_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *DeleteRSSFeedRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
 var File_proto_blogs_rss_feed_proto protoreflect.FileDescriptor
 
 var file_proto_blogs_rss_feed_proto_rawDesc = []byte{
@@ -136,10 +376,27 @@ var file_proto_blogs_rss_feed_proto_rawDesc = []byte{
 	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x75, 0x72, 0x6c, 0x22, 0x28, 0x0a, 0x14, 0x43, 0x72,
 	0x65, 0x61, 0x74, 0x65, 0x52, 0x53, 0x53, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65,
 	0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x75, 0x72, 0x6c, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x03, 0x75, 0x72, 0x6c, 0x42, 0x2b, 0x5a, 0x1c, 0x2f, 0x62, 0x6c, 0x6f, 0x67, 0x73, 0x2f, 0x72,
-	0x73, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x3b, 0x72, 0x73, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64,
-	0x73, 0x5f, 0x70, 0x62, 0xea, 0x02, 0x0a, 0x52, 0x53, 0x53, 0x46, 0x65, 0x65, 0x64, 0x73, 0x50,
-	0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x03, 0x75, 0x72, 0x6c, 0x22, 0x51, 0x0a, 0x18, 0x42, 0x61, 0x74, 0x63, 0x68, 0x47, 0x65, 0x74,
+	0x52, 0x53, 0x53, 0x46, 0x65, 0x65, 0x64, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x35, 0x0a, 0x09, 0x72, 0x73, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x73, 0x18, 0x01, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x70, 0x6f, 0x72, 0x74, 0x66, 0x6f, 0x6c, 0x69, 0x6f, 0x2e,
+	0x62, 0x6c, 0x6f, 0x67, 0x73, 0x2e, 0x52, 0x53, 0x53, 0x46, 0x65, 0x65, 0x64, 0x52, 0x08, 0x72,
+	0x73, 0x73, 0x46, 0x65, 0x65, 0x64, 0x73, 0x22, 0x23, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x52, 0x53,
+	0x53, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02,
+	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x4b, 0x0a, 0x12,
+	0x47, 0x65, 0x74, 0x52, 0x53, 0x53, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x35, 0x0a, 0x09, 0x72, 0x73, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x73, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x70, 0x6f, 0x72, 0x74, 0x66, 0x6f, 0x6c, 0x69,
+	0x6f, 0x2e, 0x62, 0x6c, 0x6f, 0x67, 0x73, 0x2e, 0x52, 0x53, 0x53, 0x46, 0x65, 0x65, 0x64, 0x52,
+	0x08, 0x72, 0x73, 0x73, 0x46, 0x65, 0x65, 0x64, 0x73, 0x22, 0x26, 0x0a, 0x14, 0x55, 0x70, 0x64,
+	0x61, 0x74, 0x65, 0x52, 0x53, 0x53, 0x46, 0x65, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69,
+	0x64, 0x22, 0x26, 0x0a, 0x14, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x53, 0x53, 0x46, 0x65,
+	0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x42, 0x2b, 0x5a, 0x1c, 0x2f, 0x62, 0x6c,
+	0x6f, 0x67, 0x73, 0x2f, 0x72, 0x73, 0x73, 0x5f, 0x66, 0x65, 0x65, 0x64, 0x3b, 0x72, 0x73, 0x73,
+	0x5f, 0x66, 0x65, 0x65, 0x64, 0x73, 0x5f, 0x70, 0x62, 0xea, 0x02, 0x0a, 0x52, 0x53, 0x53, 0x46,
+	0x65, 0x65, 0x64, 0x73, 0x50, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -154,17 +411,24 @@ func file_proto_blogs_rss_feed_proto_rawDescGZIP() []byte {
 	return file_proto_blogs_rss_feed_proto_rawDescData
 }
 
-var file_proto_blogs_rss_feed_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_proto_blogs_rss_feed_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_proto_blogs_rss_feed_proto_goTypes = []interface{}{
-	(*RSSFeed)(nil),              // 0: portfolio.blogs.RSSFeed
-	(*CreateRSSFeedRequest)(nil), // 1: portfolio.blogs.CreateRSSFeedRequest
+	(*RSSFeed)(nil),                  // 0: portfolio.blogs.RSSFeed
+	(*CreateRSSFeedRequest)(nil),     // 1: portfolio.blogs.CreateRSSFeedRequest
+	(*BatchGetRSSFeedsResponse)(nil), // 2: portfolio.blogs.BatchGetRSSFeedsResponse
+	(*GetRSSFeedRequest)(nil),        // 3: portfolio.blogs.GetRSSFeedRequest
+	(*GetRSSFeedResponse)(nil),       // 4: portfolio.blogs.GetRSSFeedResponse
+	(*UpdateRSSFeedRequest)(nil),     // 5: portfolio.blogs.UpdateRSSFeedRequest
+	(*DeleteRSSFeedRequest)(nil),     // 6: portfolio.blogs.DeleteRSSFeedRequest
 }
 var file_proto_blogs_rss_feed_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: portfolio.blogs.BatchGetRSSFeedsResponse.rss_feeds:type_name -> portfolio.blogs.RSSFeed
+	0, // 1: portfolio.blogs.GetRSSFeedResponse.rss_feeds:type_name -> portfolio.blogs.RSSFeed
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_proto_blogs_rss_feed_proto_init() }
@@ -197,6 +461,66 @@ func file_proto_blogs_rss_feed_proto_init() {
 				return nil
 			}
 		}
+		file_proto_blogs_rss_feed_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*BatchGetRSSFeedsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_blogs_rss_feed_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetRSSFeedRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_blogs_rss_feed_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetRSSFeedResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_blogs_rss_feed_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateRSSFeedRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_blogs_rss_feed_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteRSSFeedRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -204,7 +528,7 @@ func file_proto_blogs_rss_feed_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_blogs_rss_feed_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
