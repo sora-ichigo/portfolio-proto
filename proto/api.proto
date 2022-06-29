@@ -29,4 +29,15 @@ service PortfolioBackendApi {
     };
   }
 
+  rpc UpdateRSSFeed(portfolio.blogs.UpdateRSSFeedRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      put: "/rss_feed/{id}"
+    };
+  }
+
+  rpc DeleteRSSFeed(portfolio.blogs.DeleteRSSFeedRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/rss_feed/{id}"
+    };
+  }
 }

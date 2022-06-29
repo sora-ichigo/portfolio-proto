@@ -31,3 +31,13 @@ message GetRSSFeedResponse {
   // Required.
   RSSFeed rss_feeds = 1;
 }
+
+message UpdateRSSFeedRequest {
+  // Required.
+  string id = 1;
+}
+
+message DeleteRSSFeedRequest {
+  // Required.
+  string id = 1;
+}
