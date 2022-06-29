@@ -22,4 +22,11 @@ service PortfolioBackendApi {
       get: "/rss_feeds"
     };
   }
+
+  rpc GetRSSFeed(google.protobuf.Empty) returns (portfolio.blogs.GetRSSFeedResponse) {
+    option (google.api.http) = {
+      get: "/rss_feed/{id}"
+    };
+  }
+
 }
