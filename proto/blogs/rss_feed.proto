@@ -29,7 +29,7 @@ message GetRSSFeedRequest {
 
 message GetRSSFeedResponse {
   // Required.
-  RSSFeed rss_feeds = 1;
+  RSSFeed rss_feed = 1;
 }
 
 message UpdateRSSFeedRequest {
