@@ -93,10 +93,10 @@ export namespace GetRSSFeedRequest {
 
 export class GetRSSFeedResponse extends jspb.Message { 
 
-    hasRssFeeds(): boolean;
-    clearRssFeeds(): void;
-    getRssFeeds(): RSSFeed | undefined;
-    setRssFeeds(value?: RSSFeed): GetRSSFeedResponse;
+    hasRssFeed(): boolean;
+    clearRssFeed(): void;
+    getRssFeed(): RSSFeed | undefined;
+    setRssFeed(value?: RSSFeed): GetRSSFeedResponse;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetRSSFeedResponse.AsObject;
@@ -110,7 +110,7 @@ export class GetRSSFeedResponse extends jspb.Message {
 
 export namespace GetRSSFeedResponse {
     export type AsObject = {
-        rssFeeds?: RSSFeed.AsObject,
+        rssFeed?: RSSFeed.AsObject,
     }
 }
 
