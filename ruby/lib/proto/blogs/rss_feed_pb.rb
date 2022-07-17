@@ -19,7 +19,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :id, :string, 1
     end
     add_message "portfolio.blogs.GetRSSFeedResponse" do
-      optional :rss_feeds, :message, 1, "portfolio.blogs.RSSFeed"
+      optional :rss_feed, :message, 1, "portfolio.blogs.RSSFeed"
     end
     add_message "portfolio.blogs.UpdateRSSFeedRequest" do
       optional :id, :string, 1

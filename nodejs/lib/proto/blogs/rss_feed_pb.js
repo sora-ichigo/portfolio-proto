@@ -781,7 +781,7 @@ proto.portfolio.blogs.GetRSSFeedResponse.prototype.toObject = function(opt_inclu
  */
 proto.portfolio.blogs.GetRSSFeedResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    rssFeeds: (f = msg.getRssFeeds()) && proto.portfolio.blogs.RSSFeed.toObject(includeInstance, f)
+    rssFeed: (f = msg.getRssFeed()) && proto.portfolio.blogs.RSSFeed.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -821,7 +821,7 @@ proto.portfolio.blogs.GetRSSFeedResponse.deserializeBinaryFromReader = function(
     case 1:
       var value = new proto.portfolio.blogs.RSSFeed;
       reader.readMessage(value,proto.portfolio.blogs.RSSFeed.deserializeBinaryFromReader);
-      msg.setRssFeeds(value);
+      msg.setRssFeed(value);
       break;
     default:
       reader.skipField();
@@ -852,7 +852,7 @@ proto.portfolio.blogs.GetRSSFeedResponse.prototype.serializeBinary = function() 
  */
 proto.portfolio.blogs.GetRSSFeedResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getRssFeeds();
+  f = message.getRssFeed();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -864,10 +864,10 @@ proto.portfolio.blogs.GetRSSFeedResponse.serializeBinaryToWriter = function(mess
 
 
 /**
- * optional RSSFeed rss_feeds = 1;
+ * optional RSSFeed rss_feed = 1;
  * @return {?proto.portfolio.blogs.RSSFeed}
  */
-proto.portfolio.blogs.GetRSSFeedResponse.prototype.getRssFeeds = function() {
+proto.portfolio.blogs.GetRSSFeedResponse.prototype.getRssFeed = function() {
   return /** @type{?proto.portfolio.blogs.RSSFeed} */ (
     jspb.Message.getWrapperField(this, proto.portfolio.blogs.RSSFeed, 1));
 };
@@ -877,7 +877,7 @@ proto.portfolio.blogs.GetRSSFeedResponse.prototype.getRssFeeds = function() {
  * @param {?proto.portfolio.blogs.RSSFeed|undefined} value
  * @return {!proto.portfolio.blogs.GetRSSFeedResponse} returns this
 */
-proto.portfolio.blogs.GetRSSFeedResponse.prototype.setRssFeeds = function(value) {
+proto.portfolio.blogs.GetRSSFeedResponse.prototype.setRssFeed = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
@@ -886,8 +886,8 @@ proto.portfolio.blogs.GetRSSFeedResponse.prototype.setRssFeeds = function(value)
  * Clears the message field making it undefined.
  * @return {!proto.portfolio.blogs.GetRSSFeedResponse} returns this
  */
-proto.portfolio.blogs.GetRSSFeedResponse.prototype.clearRssFeeds = function() {
-  return this.setRssFeeds(undefined);
+proto.portfolio.blogs.GetRSSFeedResponse.prototype.clearRssFeed = function() {
+  return this.setRssFeed(undefined);
 };
 
 
@@ -895,7 +895,7 @@ proto.portfolio.blogs.GetRSSFeedResponse.prototype.clearRssFeeds = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.portfolio.blogs.GetRSSFeedResponse.prototype.hasRssFeeds = function() {
+proto.portfolio.blogs.GetRSSFeedResponse.prototype.hasRssFeed = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 

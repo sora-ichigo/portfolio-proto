@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "proto/blogs/rss_feed.proto",
+    "title": "proto/api.proto",
     "version": "version not set"
   },
   "tags": [
@@ -173,7 +173,7 @@
     "blogsGetRSSFeedResponse": {
       "type": "object",
       "properties": {
-        "rssFeeds": {
+        "rssFeed": {
           "$ref": "#/definitions/blogsRSSFeed",
           "description": "Required."
         }
