@@ -11,6 +11,7 @@ option go_package = "/api;api_pb";
 option ruby_package = "ApiPb";
 
 service PortfolioBackendApi {
+  // For RSS Feed ========================
   rpc CreateRSSFeed(portfolio.blogs.CreateRSSFeedRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       post: "/rss_feeds"
@@ -29,15 +30,36 @@ service PortfolioBackendApi {
     };
   }
 
-  rpc UpdateRSSFeed(portfolio.blogs.UpdateRSSFeedRequest) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      put: "/rss_feed/{id}"
-    };
-  }
-
   rpc DeleteRSSFeed(portfolio.blogs.DeleteRSSFeedRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       delete: "/rss_feed/{id}"
     };
   }
+  // For RSS Feed ========================
+
+  // For Blog ============================
+  rpc CreateBlog(portfolio.blogs.CreateBlogRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/blogs"
+    };
+  }
+
+  rpc BatchGetBlogs(google.protobuf.Empty) returns (portfolio.blogs.BatchGetBlogsResponse) {
+    option (google.api.http) = {
+      get: "/blogs"
+    };
+  }
+
+  rpc GetBlog(portfolio.blogs.GetBlogRequest) returns (portfolio.blogs.GetBlogResponse) {
+    option (google.api.http) = {
+      get: "/blogs/{id}"
+    };
+  }
+
+  rpc DeleteBlog(portfolio.blogs.DeleteBlogRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/blogs/{id}"
+    };
+  }
+  // For Blog ============================
 }
