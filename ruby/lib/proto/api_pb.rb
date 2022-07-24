@@ -6,6 +6,7 @@ require 'google/protobuf'
 require 'google/api/annotations_pb'
 require 'google/protobuf/empty_pb'
 require 'proto/blogs/rss_feed_pb'
+require 'proto/blogs/blog_pb'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("proto/api.proto", :syntax => :proto3) do

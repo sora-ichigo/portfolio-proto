@@ -16,6 +16,145 @@
     "application/json"
   ],
   "paths": {
+    "/blogs": {
+      "get": {
+        "operationId": "PortfolioBackendApi_BatchGetBlogs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/blogsBatchGetBlogsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "PortfolioBackendApi"
+        ]
+      },
+      "post": {
+        "summary": "For Blog ============================",
+        "operationId": "PortfolioBackendApi_CreateBlog",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "title",
+            "description": "Required. ブログのタイトル",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "postedAt",
+            "description": "Required. ブログの投稿日時",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "siteUrl",
+            "description": "Required. ブログのサイトURL",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "thumbnailUrl",
+            "description": "Required. ブログのサムネイル画像URL",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "serviceName",
+            "description": "Required. ブログサービスの名前 e.g.  Zenn, Note, Qiita, ...",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "PortfolioBackendApi"
+        ]
+      }
+    },
+    "/blogs/{id}": {
+      "get": {
+        "operationId": "PortfolioBackendApi_GetBlog",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/blogsGetBlogResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "PortfolioBackendApi"
+        ]
+      },
+      "delete": {
+        "operationId": "PortfolioBackendApi_DeleteBlog",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "PortfolioBackendApi"
+        ]
+      }
+    },
     "/rss_feed/{id}": {
       "get": {
         "operationId": "PortfolioBackendApi_GetRSSFeed",
@@ -74,35 +213,6 @@
         "tags": [
           "PortfolioBackendApi"
         ]
-      },
-      "put": {
-        "operationId": "PortfolioBackendApi_UpdateRSSFeed",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "properties": {}
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "description": "Required.",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "PortfolioBackendApi"
-        ]
       }
     },
     "/rss_feeds": {
@@ -127,6 +237,7 @@
         ]
       },
       "post": {
+        "summary": "For RSS Feed ========================",
         "operationId": "PortfolioBackendApi_CreateRSSFeed",
         "responses": {
           "200": {
@@ -158,6 +269,17 @@
     }
   },
   "definitions": {
+    "blogsBatchGetBlogsResponse": {
+      "type": "object",
+      "properties": {
+        "blogs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/blogsBlog"
+          }
+        }
+      }
+    },
     "blogsBatchGetRSSFeedsResponse": {
       "type": "object",
       "properties": {
@@ -167,6 +289,44 @@
             "$ref": "#/definitions/blogsRSSFeed"
           },
           "description": "Required."
+        }
+      }
+    },
+    "blogsBlog": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Required."
+        },
+        "title": {
+          "type": "string",
+          "title": "Required. ブログのタイトル"
+        },
+        "postedAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Required. ブログの投稿日時"
+        },
+        "siteUrl": {
+          "type": "string",
+          "title": "Required. ブログのサイトURL"
+        },
+        "thumbnailUrl": {
+          "type": "string",
+          "title": "Required. ブログのサムネイル画像URL"
+        },
+        "serviceName": {
+          "type": "string",
+          "description": "Required. ブログサービスの名前 e.g.  Zenn, Note, Qiita, ..."
+        }
+      }
+    },
+    "blogsGetBlogResponse": {
+      "type": "object",
+      "properties": {
+        "blogs": {
+          "$ref": "#/definitions/blogsBlog"
         }
       }
     },

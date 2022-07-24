@@ -14,11 +14,16 @@ module ApiPb
       self.unmarshal_class_method = :decode
       self.service_name = 'portfolio.PortfolioBackendApi'
 
+      # For RSS Feed ========================
       rpc :CreateRSSFeed, ::RSSFeedsPb::CreateRSSFeedRequest, ::Google::Protobuf::Empty
       rpc :BatchGetRSSFeeds, ::Google::Protobuf::Empty, ::RSSFeedsPb::BatchGetRSSFeedsResponse
       rpc :GetRSSFeed, ::RSSFeedsPb::GetRSSFeedRequest, ::RSSFeedsPb::GetRSSFeedResponse
-      rpc :UpdateRSSFeed, ::RSSFeedsPb::UpdateRSSFeedRequest, ::Google::Protobuf::Empty
       rpc :DeleteRSSFeed, ::RSSFeedsPb::DeleteRSSFeedRequest, ::Google::Protobuf::Empty
+      # For Blog ============================
+      rpc :CreateBlog, ::BlogsPb::CreateBlogRequest, ::Google::Protobuf::Empty
+      rpc :BatchGetBlogs, ::Google::Protobuf::Empty, ::BlogsPb::BatchGetBlogsResponse
+      rpc :GetBlog, ::BlogsPb::GetBlogRequest, ::BlogsPb::GetBlogResponse
+      rpc :DeleteBlog, ::BlogsPb::DeleteBlogRequest, ::Google::Protobuf::Empty
     end
 
     Stub = Service.rpc_stub_class

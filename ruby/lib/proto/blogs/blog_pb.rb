@@ -31,6 +31,25 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :thumbnail_url, :string, 5
       optional :service_name, :string, 6
     end
+    add_message "portfolio.blogs.CreateBlogRequest" do
+      optional :title, :string, 2
+      optional :posted_at, :message, 3, "google.protobuf.Timestamp"
+      optional :site_url, :string, 4
+      optional :thumbnail_url, :string, 5
+      optional :service_name, :string, 6
+    end
+    add_message "portfolio.blogs.BatchGetBlogsResponse" do
+      repeated :blogs, :message, 1, "portfolio.blogs.Blog"
+    end
+    add_message "portfolio.blogs.GetBlogRequest" do
+      optional :id, :string, 1
+    end
+    add_message "portfolio.blogs.GetBlogResponse" do
+      optional :blogs, :message, 1, "portfolio.blogs.Blog"
+    end
+    add_message "portfolio.blogs.DeleteBlogRequest" do
+      optional :id, :string, 1
+    end
   end
 end
 
@@ -38,4 +57,9 @@ module BlogsPb
   Blog = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.Blog").msgclass
   BlogFromRSSItem = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.BlogFromRSSItem").msgclass
   BlogFromManualItem = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.BlogFromManualItem").msgclass
+  CreateBlogRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.CreateBlogRequest").msgclass
+  BatchGetBlogsResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.BatchGetBlogsResponse").msgclass
+  GetBlogRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.GetBlogRequest").msgclass
+  GetBlogResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.GetBlogResponse").msgclass
+  DeleteBlogRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("portfolio.blogs.DeleteBlogRequest").msgclass
 end
