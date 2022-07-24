@@ -74,7 +74,7 @@ message GetBlogRequest {
 }
 
 message GetBlogResponse {
-  Blog blogs = 1;
+  Blog blog = 1;
 }
 
 message DeleteBlogRequest {
