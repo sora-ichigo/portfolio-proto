@@ -7,6 +7,7 @@
 package api_pb
 
 import (
+	blogs "/blogs"
 	rss_feed "/blogs/rss_feed"
 	context "context"
 	empty "github.com/golang/protobuf/ptypes/empty"
@@ -24,11 +25,16 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PortfolioBackendApiClient interface {
+	// For RSS Feed ========================
 	CreateRSSFeed(ctx context.Context, in *rss_feed.CreateRSSFeedRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	BatchGetRSSFeeds(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*rss_feed.BatchGetRSSFeedsResponse, error)
 	GetRSSFeed(ctx context.Context, in *rss_feed.GetRSSFeedRequest, opts ...grpc.CallOption) (*rss_feed.GetRSSFeedResponse, error)
-	UpdateRSSFeed(ctx context.Context, in *rss_feed.UpdateRSSFeedRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	DeleteRSSFeed(ctx context.Context, in *rss_feed.DeleteRSSFeedRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	// For Blog ============================
+	CreateBlog(ctx context.Context, in *blogs.CreateBlogRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	BatchGetBlogs(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*blogs.BatchGetBlogsResponse, error)
+	GetBlog(ctx context.Context, in *blogs.GetBlogRequest, opts ...grpc.CallOption) (*blogs.GetBlogResponse, error)
+	DeleteBlog(ctx context.Context, in *blogs.DeleteBlogRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 }
 
 type portfolioBackendApiClient struct {
@@ -66,18 +72,45 @@ func (c *portfolioBackendApiClient) GetRSSFeed(ctx context.Context, in *rss_feed
 	return out, nil
 }
 
-func (c *portfolioBackendApiClient) UpdateRSSFeed(ctx context.Context, in *rss_feed.UpdateRSSFeedRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+func (c *portfolioBackendApiClient) DeleteRSSFeed(ctx context.Context, in *rss_feed.DeleteRSSFeedRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
-	err := c.cc.Invoke(ctx, "/portfolio.PortfolioBackendApi/UpdateRSSFeed", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/portfolio.PortfolioBackendApi/DeleteRSSFeed", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *portfolioBackendApiClient) DeleteRSSFeed(ctx context.Context, in *rss_feed.DeleteRSSFeedRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+func (c *portfolioBackendApiClient) CreateBlog(ctx context.Context, in *blogs.CreateBlogRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
-	err := c.cc.Invoke(ctx, "/portfolio.PortfolioBackendApi/DeleteRSSFeed", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/portfolio.PortfolioBackendApi/CreateBlog", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *portfolioBackendApiClient) BatchGetBlogs(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*blogs.BatchGetBlogsResponse, error) {
+	out := new(blogs.BatchGetBlogsResponse)
+	err := c.cc.Invoke(ctx, "/portfolio.PortfolioBackendApi/BatchGetBlogs", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *portfolioBackendApiClient) GetBlog(ctx context.Context, in *blogs.GetBlogRequest, opts ...grpc.CallOption) (*blogs.GetBlogResponse, error) {
+	out := new(blogs.GetBlogResponse)
+	err := c.cc.Invoke(ctx, "/portfolio.PortfolioBackendApi/GetBlog", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *portfolioBackendApiClient) DeleteBlog(ctx context.Context, in *blogs.DeleteBlogRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
+	err := c.cc.Invoke(ctx, "/portfolio.PortfolioBackendApi/DeleteBlog", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,11 +121,16 @@ func (c *portfolioBackendApiClient) DeleteRSSFeed(ctx context.Context, in *rss_f
 // All implementations must embed UnimplementedPortfolioBackendApiServer
 // for forward compatibility
 type PortfolioBackendApiServer interface {
+	// For RSS Feed ========================
 	CreateRSSFeed(context.Context, *rss_feed.CreateRSSFeedRequest) (*empty.Empty, error)
 	BatchGetRSSFeeds(context.Context, *empty.Empty) (*rss_feed.BatchGetRSSFeedsResponse, error)
 	GetRSSFeed(context.Context, *rss_feed.GetRSSFeedRequest) (*rss_feed.GetRSSFeedResponse, error)
-	UpdateRSSFeed(context.Context, *rss_feed.UpdateRSSFeedRequest) (*empty.Empty, error)
 	DeleteRSSFeed(context.Context, *rss_feed.DeleteRSSFeedRequest) (*empty.Empty, error)
+	// For Blog ============================
+	CreateBlog(context.Context, *blogs.CreateBlogRequest) (*empty.Empty, error)
+	BatchGetBlogs(context.Context, *empty.Empty) (*blogs.BatchGetBlogsResponse, error)
+	GetBlog(context.Context, *blogs.GetBlogRequest) (*blogs.GetBlogResponse, error)
+	DeleteBlog(context.Context, *blogs.DeleteBlogRequest) (*empty.Empty, error)
 	mustEmbedUnimplementedPortfolioBackendApiServer()
 }
 
@@ -109,11 +147,20 @@ func (UnimplementedPortfolioBackendApiServer) BatchGetRSSFeeds(context.Context, 
 func (UnimplementedPortfolioBackendApiServer) GetRSSFeed(context.Context, *rss_feed.GetRSSFeedRequest) (*rss_feed.GetRSSFeedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRSSFeed not implemented")
 }
-func (UnimplementedPortfolioBackendApiServer) UpdateRSSFeed(context.Context, *rss_feed.UpdateRSSFeedRequest) (*empty.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateRSSFeed not implemented")
-}
 func (UnimplementedPortfolioBackendApiServer) DeleteRSSFeed(context.Context, *rss_feed.DeleteRSSFeedRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteRSSFeed not implemented")
+}
+func (UnimplementedPortfolioBackendApiServer) CreateBlog(context.Context, *blogs.CreateBlogRequest) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateBlog not implemented")
+}
+func (UnimplementedPortfolioBackendApiServer) BatchGetBlogs(context.Context, *empty.Empty) (*blogs.BatchGetBlogsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BatchGetBlogs not implemented")
+}
+func (UnimplementedPortfolioBackendApiServer) GetBlog(context.Context, *blogs.GetBlogRequest) (*blogs.GetBlogResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetBlog not implemented")
+}
+func (UnimplementedPortfolioBackendApiServer) DeleteBlog(context.Context, *blogs.DeleteBlogRequest) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteBlog not implemented")
 }
 func (UnimplementedPortfolioBackendApiServer) mustEmbedUnimplementedPortfolioBackendApiServer() {}
 
@@ -182,24 +229,6 @@ func _PortfolioBackendApi_GetRSSFeed_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PortfolioBackendApi_UpdateRSSFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(rss_feed.UpdateRSSFeedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PortfolioBackendApiServer).UpdateRSSFeed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/portfolio.PortfolioBackendApi/UpdateRSSFeed",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PortfolioBackendApiServer).UpdateRSSFeed(ctx, req.(*rss_feed.UpdateRSSFeedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _PortfolioBackendApi_DeleteRSSFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(rss_feed.DeleteRSSFeedRequest)
 	if err := dec(in); err != nil {
@@ -214,6 +243,78 @@ func _PortfolioBackendApi_DeleteRSSFeed_Handler(srv interface{}, ctx context.Con
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PortfolioBackendApiServer).DeleteRSSFeed(ctx, req.(*rss_feed.DeleteRSSFeedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PortfolioBackendApi_CreateBlog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(blogs.CreateBlogRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PortfolioBackendApiServer).CreateBlog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/portfolio.PortfolioBackendApi/CreateBlog",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PortfolioBackendApiServer).CreateBlog(ctx, req.(*blogs.CreateBlogRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PortfolioBackendApi_BatchGetBlogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(empty.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PortfolioBackendApiServer).BatchGetBlogs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/portfolio.PortfolioBackendApi/BatchGetBlogs",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PortfolioBackendApiServer).BatchGetBlogs(ctx, req.(*empty.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PortfolioBackendApi_GetBlog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(blogs.GetBlogRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PortfolioBackendApiServer).GetBlog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/portfolio.PortfolioBackendApi/GetBlog",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PortfolioBackendApiServer).GetBlog(ctx, req.(*blogs.GetBlogRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PortfolioBackendApi_DeleteBlog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(blogs.DeleteBlogRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PortfolioBackendApiServer).DeleteBlog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/portfolio.PortfolioBackendApi/DeleteBlog",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PortfolioBackendApiServer).DeleteBlog(ctx, req.(*blogs.DeleteBlogRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -238,12 +339,24 @@ var PortfolioBackendApi_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _PortfolioBackendApi_GetRSSFeed_Handler,
 		},
 		{
-			MethodName: "UpdateRSSFeed",
-			Handler:    _PortfolioBackendApi_UpdateRSSFeed_Handler,
-		},
-		{
 			MethodName: "DeleteRSSFeed",
 			Handler:    _PortfolioBackendApi_DeleteRSSFeed_Handler,
+		},
+		{
+			MethodName: "CreateBlog",
+			Handler:    _PortfolioBackendApi_CreateBlog_Handler,
+		},
+		{
+			MethodName: "BatchGetBlogs",
+			Handler:    _PortfolioBackendApi_BatchGetBlogs_Handler,
+		},
+		{
+			MethodName: "GetBlog",
+			Handler:    _PortfolioBackendApi_GetBlog_Handler,
+		},
+		{
+			MethodName: "DeleteBlog",
+			Handler:    _PortfolioBackendApi_DeleteBlog_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

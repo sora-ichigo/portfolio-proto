@@ -21,3 +21,5 @@ var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb
 goog.object.extend(proto, google_protobuf_empty_pb);
 var proto_blogs_rss_feed_pb = require('../proto/blogs/rss_feed_pb.js');
 goog.object.extend(proto, proto_blogs_rss_feed_pb);
+var proto_blogs_blog_pb = require('../proto/blogs/blog_pb.js');
+goog.object.extend(proto, proto_blogs_blog_pb);
