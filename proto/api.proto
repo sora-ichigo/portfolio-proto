@@ -6,6 +6,7 @@ import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 
 import "proto/blogs/rss_feed.proto";
+import "proto/blogs/blog.proto";
 
 option go_package = "/api;api_pb";
 option ruby_package = "ApiPb";
