@@ -45,7 +45,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :id, :string, 1
     end
     add_message "portfolio.blogs.GetBlogResponse" do
-      optional :blogs, :message, 1, "portfolio.blogs.Blog"
+      optional :blog, :message, 1, "portfolio.blogs.Blog"
     end
     add_message "portfolio.blogs.DeleteBlogRequest" do
       optional :id, :string, 1

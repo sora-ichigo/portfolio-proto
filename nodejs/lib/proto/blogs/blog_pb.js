@@ -1689,7 +1689,7 @@ proto.portfolio.blogs.GetBlogResponse.prototype.toObject = function(opt_includeI
  */
 proto.portfolio.blogs.GetBlogResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    blogs: (f = msg.getBlogs()) && proto.portfolio.blogs.Blog.toObject(includeInstance, f)
+    blog: (f = msg.getBlog()) && proto.portfolio.blogs.Blog.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1729,7 +1729,7 @@ proto.portfolio.blogs.GetBlogResponse.deserializeBinaryFromReader = function(msg
     case 1:
       var value = new proto.portfolio.blogs.Blog;
       reader.readMessage(value,proto.portfolio.blogs.Blog.deserializeBinaryFromReader);
-      msg.setBlogs(value);
+      msg.setBlog(value);
       break;
     default:
       reader.skipField();
@@ -1760,7 +1760,7 @@ proto.portfolio.blogs.GetBlogResponse.prototype.serializeBinary = function() {
  */
 proto.portfolio.blogs.GetBlogResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getBlogs();
+  f = message.getBlog();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -1772,10 +1772,10 @@ proto.portfolio.blogs.GetBlogResponse.serializeBinaryToWriter = function(message
 
 
 /**
- * optional Blog blogs = 1;
+ * optional Blog blog = 1;
  * @return {?proto.portfolio.blogs.Blog}
  */
-proto.portfolio.blogs.GetBlogResponse.prototype.getBlogs = function() {
+proto.portfolio.blogs.GetBlogResponse.prototype.getBlog = function() {
   return /** @type{?proto.portfolio.blogs.Blog} */ (
     jspb.Message.getWrapperField(this, proto.portfolio.blogs.Blog, 1));
 };
@@ -1785,7 +1785,7 @@ proto.portfolio.blogs.GetBlogResponse.prototype.getBlogs = function() {
  * @param {?proto.portfolio.blogs.Blog|undefined} value
  * @return {!proto.portfolio.blogs.GetBlogResponse} returns this
 */
-proto.portfolio.blogs.GetBlogResponse.prototype.setBlogs = function(value) {
+proto.portfolio.blogs.GetBlogResponse.prototype.setBlog = function(value) {
   return jspb.Message.setWrapperField(this, 1, value);
 };
 
@@ -1794,8 +1794,8 @@ proto.portfolio.blogs.GetBlogResponse.prototype.setBlogs = function(value) {
  * Clears the message field making it undefined.
  * @return {!proto.portfolio.blogs.GetBlogResponse} returns this
  */
-proto.portfolio.blogs.GetBlogResponse.prototype.clearBlogs = function() {
-  return this.setBlogs(undefined);
+proto.portfolio.blogs.GetBlogResponse.prototype.clearBlog = function() {
+  return this.setBlog(undefined);
 };
 
 
@@ -1803,7 +1803,7 @@ proto.portfolio.blogs.GetBlogResponse.prototype.clearBlogs = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.portfolio.blogs.GetBlogResponse.prototype.hasBlogs = function() {
+proto.portfolio.blogs.GetBlogResponse.prototype.hasBlog = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 

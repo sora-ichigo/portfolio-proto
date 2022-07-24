@@ -200,10 +200,10 @@ export namespace GetBlogRequest {
 
 export class GetBlogResponse extends jspb.Message { 
 
-    hasBlogs(): boolean;
-    clearBlogs(): void;
-    getBlogs(): Blog | undefined;
-    setBlogs(value?: Blog): GetBlogResponse;
+    hasBlog(): boolean;
+    clearBlog(): void;
+    getBlog(): Blog | undefined;
+    setBlog(value?: Blog): GetBlogResponse;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): GetBlogResponse.AsObject;
@@ -217,7 +217,7 @@ export class GetBlogResponse extends jspb.Message {
 
 export namespace GetBlogResponse {
     export type AsObject = {
-        blogs?: Blog.AsObject,
+        blog?: Blog.AsObject,
     }
 }
 
