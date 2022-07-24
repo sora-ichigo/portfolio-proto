@@ -51,3 +51,32 @@ message BlogFromManualItem {
   // Required. ブログサービスの名前 e.g.  Zenn, Note, Qiita, ...
   string service_name = 6;
 }
+
+message CreateBlogRequest {
+  // Required. ブログのタイトル
+  string title = 2;
+  // Required. ブログの投稿日時
+  google.protobuf.Timestamp posted_at = 3;
+  // Required. ブログのサイトURL
+  string site_url = 4;
+  // Required. ブログのサムネイル画像URL
+  string thumbnail_url = 5;
+  // Required. ブログサービスの名前 e.g.  Zenn, Note, Qiita, ...
+  string service_name = 6;
+}
+
+message BatchGetBlogsResponse {
+  repeated Blog blogs = 1;
+}
+
+message GetBlogRequest {
+  string id = 1;
+}
+
+message GetBlogResponse {
+  Blog blogs = 1;
+}
+
+message DeleteBlogRequest {
+  string id = 1;
+}
